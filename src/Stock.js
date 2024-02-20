@@ -37,7 +37,12 @@ export class Stock {
     }
 
     getTotalProducts() {
-        return this.getProducts().reduce((total, product) => total + product.getQuantity(), 0);
+        const totalProducts = this.getProducts().reduce((total, product) => total + product.getQuantity(), 0);
+        if (totalProducts < 0) {
+            throw new Error("Total products cannot be negative");
+        }
+
+        return totalProducts;
     }
 
     displayProducts() {
