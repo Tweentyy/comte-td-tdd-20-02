@@ -19,6 +19,7 @@ describe("Tests sur le Stock", () => {
     it ("Ajouter un produit", () => {
         const article = new Article(4, "Bananes", 2.5, 5);
         stock.addProduct(article);
-        expect(stock.getTotalProducts()).to.equal(28)
+        expect(stock.getProduct().length).to.equal(4);
+        expect(stock.getTotalProducts()).to.equal(28);
     });
 });
