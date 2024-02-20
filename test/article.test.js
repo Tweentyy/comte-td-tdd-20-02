@@ -41,13 +41,13 @@ describe("Tests sur les Articles", () => {
         expect(() => new Article(1, "Fraises", 2.5, -10)).to.throw("Invalid quantity provided");
     });
 
-    it ("Créer un article et modifier la quantité avec une valeur valide", () => {
+    it("Créer un article et modifier la quantité avec une valeur valide", () => {
         const article = new Article(1, "Fraises", 5, 1);
         article.setQuantity(10);
         expect(article.getQuantity()).to.equal(10);
     });
 
-    it ("Créer un article et modifier la quantité avec une valeur invalide", () => {
+    it("Créer un article et modifier la quantité avec une valeur invalide", () => {
         const article = new Article(1, "Fraises", 5, 1);
         expect(() => article.setQuantity(-10)).to.throw("Invalid quantity provided");
     });
