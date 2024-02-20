@@ -16,4 +16,8 @@ export class Stock {
             throw new Error("Invalid product provided");
         }
     }
+
+    getTotalProducts() {
+        return this.getProduct().reduce((total, product) => total + product.getQuantity(), 0);
+    }
 }
