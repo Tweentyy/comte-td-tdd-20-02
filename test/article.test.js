@@ -84,6 +84,14 @@ describe("Tests sur les Articles", () => {
         expect(article.getExpirationDate().getTime()).to.equal(new Date("2024-05-10").getTime());
     });
 
+    it("Créer un article avec une date d'expiration valide mais dépassée", () => {
+        expect(() => new Article(1, "Fraises", 5, 1, new Date("2020-05-10"))).to.throw("Invalid expiration date provided");
+    });
+
+    it("Créer un article avec une date d'expiration invalide", () => {
+        expect(() => new Article(1, "Fraises", 5, 1, null)).to.throw("Invalid expiration date provided");
+    });
+
     it("Créer un article avec une remise valide", () => {
         const article = new Article(1, "Fraises", 5, 1, new Date("2024-05-10"));
         article.setDiscount(50);
