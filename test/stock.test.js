@@ -33,6 +33,10 @@ describe("Tests sur le Stock", () => {
         expect(stock.getTotalProducts()).to.equal(14);
     });
 
+    it("Supprimer un produit invalide par son id", () => {
+        expect(() => stock.deleteProduct(4)).to.throw("Product not found");
+    });
+
     it("Récupérer un produit valide par son id", () => {
         const product = stock.getProduct(2);
         expect(product.getId()).to.equal(2);
