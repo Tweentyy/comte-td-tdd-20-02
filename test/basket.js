@@ -8,9 +8,9 @@ describe("Tests sur le Panier", () => {
 
     beforeEach(() => {
         basket = new Basket();
-        const article1 = new Article(1, "Fraises", 3.5, 10);
-        const article2 = new Article(2, "Livre", 9, 9);
-        const article3 = new Article(3, "Pommes", 2, 4);
+        const article1 = new Article(1, "Fraises", 3.5, 10, new Date("2024-05-10"));
+        const article2 = new Article(2, "Livre", 9, 9, new Date("2024-05-10"));
+        const article3 = new Article(3, "Pommes", 2, 4, new Date("2024-05-10"));
         basket.addArticles(article1, article2, article3);
     });
 
@@ -19,7 +19,7 @@ describe("Tests sur le Panier", () => {
     });
 
     it("Ajouter un article valide au panier", () => {
-        const article = new Article(4, "Bananes", 2.5, 6);
+        const article = new Article(4, "Bananes", 2.5, 6, new Date("2024-05-10"));
         basket.addArticle(article);
         expect(basket.getBasketLength()).to.equal(4);
     });

@@ -8,16 +8,16 @@ describe("Tests sur le Stock", () => {
 
     beforeEach(() => {
         stock = new Stock();
-        const article1 = new Article(1, "Fraises", 3.5, 10);
-        const article2 = new Article(2, "Livre", 9, 9);
-        const article3 = new Article(3, "Pommes", 2, 4);
+        const article1 = new Article(1, "Fraises", 3.5, 10, new Date("2024-05-10"));
+        const article2 = new Article(2, "Livre", 9, 9, new Date("2024-05-10"));
+        const article3 = new Article(3, "Pommes", 2, 4, new Date("2024-05-10"));
         stock.addProduct(article1);
         stock.addProduct(article2);
         stock.addProduct(article3);
     });
 
     it("Ajouter un produit valide", () => {
-        const article = new Article(4, "Bananes", 2.5, 5);
+        const article = new Article(4, "Bananes", 2.5, 5, new Date("2024-05-10"));
         stock.addProduct(article);
         expect(stock.getProducts().length).to.equal(4);
         expect(stock.getTotalProducts()).to.equal(28);
