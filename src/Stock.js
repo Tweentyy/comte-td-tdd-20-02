@@ -5,6 +5,10 @@ export class Stock {
         this.products = [];
     }
 
+    getProduct() {
+        return this.products;
+    }
+
     addProduct(product) {
         if (product instanceof Article) {
             this.products.push(product);
