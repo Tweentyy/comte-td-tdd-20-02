@@ -30,4 +30,8 @@ export class Stock {
     getTotalProducts() {
         return this.getProducts().reduce((total, product) => total + product.getQuantity(), 0);
     }
+
+    displayProducts() {
+        return this.getProducts().map(product => console.log(`${product.name} - ${product.price}€ - ${product.quantity} unité(s)`));
+    }
 }
