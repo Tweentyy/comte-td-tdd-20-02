@@ -22,4 +22,10 @@ describe("Tests sur le Stock", () => {
         expect(stock.getProduct().length).to.equal(4);
         expect(stock.getTotalProducts()).to.equal(28);
     });
+
+    it ("Supprimer un produit par son id", () => {
+        stock.deleteProduct(2);
+        expect(stock.getProduct().length).to.equal(2);
+        expect(stock.getTotalProducts()).to.equal(14);
+    });
 });
