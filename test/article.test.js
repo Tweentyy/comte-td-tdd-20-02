@@ -79,6 +79,11 @@ describe("Tests sur les Articles", () => {
         expect(() => article.removeSpecificQuantity(-1)).to.throw("Invalid quantity provided");
     });
 
+    it("Créer un article avec une date d'expiration valide", () => {
+        const article = new Article(1, "Fraises", 5, 1, new Date("2024-05-10"));
+        expect(article.getExpirationDate().getTime()).to.equal(new Date("2024-05-10").getTime());
+    });
+
     it("Créer un article avec une remise valide", () => {
         const article = new Article(1, "Fraises", 5, 1, new Date("2024-05-10"));
         article.setDiscount(50);
