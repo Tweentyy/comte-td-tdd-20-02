@@ -1,4 +1,5 @@
-import { describe } from "mocha";
+import { describe, it } from "mocha";
+import { expect } from "chai";
 import { Article } from "../src/Article.js";
 import { Stock } from "../src/Stock.js";
 
@@ -13,5 +14,11 @@ describe("Tests sur le Stock", () => {
         stock.addProduct(article1);
         stock.addProduct(article2);
         stock.addProduct(article3);
+    });
+
+    it ("Ajouter un produit", () => {
+        const article = new Article(4, "Bananes", 2.5, 5);
+        stock.addProduct(article);
+        expect(stock.getTotalProducts()).to.equal(28)
     });
 });
