@@ -16,16 +16,24 @@ describe("Tests sur le Stock", () => {
         stock.addProduct(article3);
     });
 
-    it ("Ajouter un produit", () => {
+    it ("Ajouter un produit valide", () => {
         const article = new Article(4, "Bananes", 2.5, 5);
         stock.addProduct(article);
         expect(stock.getProducts().length).to.equal(4);
         expect(stock.getTotalProducts()).to.equal(28);
     });
 
-    it ("Supprimer un produit par son id", () => {
+    it ("Supprimer un produit valude par son id", () => {
         stock.deleteProduct(2);
         expect(stock.getProducts().length).to.equal(2);
         expect(stock.getTotalProducts()).to.equal(14);
+    });
+
+    it ("Récupérer un produit valide par son id", () => {
+        const product = stock.getProduct(2);
+        expect(product.getId()).to.equal(2);
+        expect(product.getName()).to.equal("Livre");
+        expect(product.getPrice()).to.equal(81);
+        expect(product.getQuantity()).to.equal(9);
     });
 });
