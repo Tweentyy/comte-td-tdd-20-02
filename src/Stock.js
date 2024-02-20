@@ -17,6 +17,16 @@ export class Stock {
         }
     }
 
+    deleteProduct(id) {
+        const product = this.products.find(product => product.getId() === id);
+        if (!product) {
+            throw new Error("Product not found");
+        }
+
+        const index = this.products.indexOf(product);
+        this.products.splice(index, 1);
+    }
+
     getTotalProducts() {
         return this.getProduct().reduce((total, product) => total + product.getQuantity(), 0);
     }
