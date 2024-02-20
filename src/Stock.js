@@ -9,6 +9,15 @@ export class Stock {
         return this.products;
     }
 
+    getProduct(id) {
+        const product = this.getProducts().find(product => product.getId() === id);
+        if (!product) {
+            throw new Error("Product not found");
+        }
+
+        return product;
+    }
+
     addProduct(product) {
         if (product instanceof Article) {
             this.getProducts().push(product);
