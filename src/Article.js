@@ -1,7 +1,7 @@
 export class Article {
     discounts = [5, 3, 15, 33, 50, 75];
 
-    constructor(id, name, price, quantity) {
+    constructor(id, name, price, quantity, expirationDate) {
         if (typeof id !== "number" || id <= 0) {
             throw new Error("Invalid id provided");
         }
@@ -18,10 +18,15 @@ export class Article {
             throw new Error("Invalid quantity provided");
         }
 
+        if (!(expirationDate instanceof Date) || expirationDate < new Date()) {
+            throw new Error("Invalid expiration date provided");
+        }
+
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.expirationDate = expirationDate;
         this.discount = null;
     }
 
@@ -70,6 +75,10 @@ export class Article {
         }
 
         this.quantity = quantity;
+    }
+
+    getExpirationDate() {
+        return this.expirationDate;
     }
 
     addSpecificQuantity(quantity) {
