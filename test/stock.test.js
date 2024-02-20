@@ -36,4 +36,8 @@ describe("Tests sur le Stock", () => {
         expect(product.getPrice()).to.equal(81);
         expect(product.getQuantity()).to.equal(9);
     });
+
+    it ("Récupérer un produit invalide par son id", () => {
+        expect(() => stock.getProduct(4)).to.throw("Product not found");
+    });
 });
